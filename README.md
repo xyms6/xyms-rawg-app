@@ -44,7 +44,5 @@ MIT
 
 ---
 
-Desenvolvido com ❤️ por [Seu Nome]  
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/seuuser)
-
-*Contribuições são bem-vindas!* 🚀
+Desenvolvido por [Luis Fernando]  
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/xyms6)
