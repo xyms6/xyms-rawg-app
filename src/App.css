@@ -1,38 +1,463 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: 100vh;
+  background-color: var(--steam-dark);
+  position: relative;
+}
+
+/* Header/Navbar no estilo Steam */
+nav {
+  background: linear-gradient(90deg, var(--steam-darker) 0%, var(--steam-blue) 100%);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h1 {
+  color: var(--steam-text-light);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, var(--steam-light-blue), var(--steam-text-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--steam-text);
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(102, 192, 244, 0.2);
+  color: var(--steam-light-blue);
+}
+
+/* Main Content */
+.main-content {
+  padding: 30px;
+  background-color: var(--steam-dark);
+}
+
+/* Game List - Grid no estilo Steam */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+/* Game Card - Estilo Steam */
+.game-card {
+  background: linear-gradient(135deg, var(--steam-card-bg) 0%, var(--steam-blue) 100%);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--steam-border);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--steam-light-blue);
+}
+
+.game-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--steam-border);
+}
+
+.game-info {
+  padding: 15px;
+}
+
+.game-title {
+  color: var(--steam-text-light);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.price {
+  background-color: var(--steam-green);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.discount {
+  background-color: var(--steam-orange);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+/* Estilos para a página de detalhes do jogo */
+.game-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #c7d5e0;
+}
+
+.game-header {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  padding: 30px;
+}
+
+.game-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.game-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.game-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(102, 192, 244, 0.7);
+}
+
+/* Estilos para as abas */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #2d3b49;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #c7d5e0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+}
+
+.tabs button.active {
+  color: #66c0f4;
+  font-weight: 500;
+}
+
+.tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #66c0f4;
+}
+
+.tab-content {
+  padding: 20px 0;
+}
+
+/* Estilos para cada seção */
+.description-section {
+  line-height: 1.7;
+}
+
+.description-section h2 {
+  color: #66c0f4;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.detail-row {
+  margin-bottom: 20px;
+}
+
+.detail-row h3 {
+  color: #66c0f4;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+/* Estilos para as screenshots */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.screenshots img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.screenshots img:hover {
+  transform: scale(1.03);
+}
+
+/* Loading e mensagens de erro */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #66c0f4;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  text-align: center;
+  padding: 50px;
+  color: #f44336;
+  font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .game-header {
+    height: 300px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .game-header h1 {
+    font-size: 2rem;
   }
+  
+  .game-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .tabs {
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+  
+  .screenshots {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botões no estilo Steam */
+.btn-steam {
+  background: linear-gradient(to bottom, #6fa720 5%, #588a1b 95%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-steam:hover {
+  background: linear-gradient(to bottom, #7eb832 5%, #6aa621 95%);
+  box-shadow: 0 0 5px rgba(114, 184, 35, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .game-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .game-content {
+    padding: 15px;
+  }
+  
+  .game-title-large {
+    font-size: 24px;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(90deg, var(--steam-darker) 0%, var(--steam-blue) 100%);
+  color: var(--steam-text);
+  padding: 40px 0 20px;
+  border-top: 1px solid var(--steam-border);
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+.footer-section h3, 
+.footer-section h4 {
+  color: var(--steam-text-light);
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: var(--steam-text);
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--steam-light-blue);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: var(--steam-text);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--steam-light-blue);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid var(--steam-border);
+  font-size: 0.9rem;
+  color: var(--steam-text);
+}
+
+.footer-bottom p {
+  margin-bottom: 10px;
+}
+
+/* Adicione isso para garantir que o footer fique no fundo */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
 }
