@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_RAWG_API_KEY; // Adicione ponto-e-vírgula
+const API_KEY = process.env.REACT_APP_RAWG_API_KEY; 
 const BASE_URL = "https://api.rawg.io/api"; // Corrigi a URL base
 
 const apiClient = axios.create({  // Mudei de rawgAPI para apiClient
@@ -12,7 +12,7 @@ const apiClient = axios.create({  // Mudei de rawgAPI para apiClient
 
 export const fetchGames = async () => {
   try {
-    const response = await apiClient.get('/games', {  // Atualizei para apiClient
+    const response = await apiClient.get('/games', {  
       params: {
         page_size: 20,
       },
