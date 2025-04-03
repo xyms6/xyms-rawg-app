@@ -39,10 +39,6 @@ src/
 - Node.js 16+
 - Chave de API RAWG
 
-## 📄 Licença
-MIT
-
----
 
 Desenvolvido por [Luis Fernando]  
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/xyms6)
