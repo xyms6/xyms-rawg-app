@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="social-icons">
             <a href="#" aria-label="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="Facebook"><FaFacebook /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.instagram.com/xymsko" aria-label="Instagram"><FaInstagram /></a>
             <a href="#" aria-label="Steam"><FaSteam /></a>
           </div>
         </div>
