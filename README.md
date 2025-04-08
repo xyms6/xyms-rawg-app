@@ -38,7 +38,9 @@ src/
 ## 📌 Pré-requisitos
 - Node.js 16+
 - Chave de API RAWG
-
+  
+## 🎃 Link da API utilizada 
+<a href=“https://rawg.io/“>RAWG IO</a>
 
 Desenvolvido por [Luis Fernando]  
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/xyms6)
